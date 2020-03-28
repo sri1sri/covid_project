@@ -139,15 +139,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.YourIdeaClickedevent);
                         },
                       ),
-                      MenuItem(
-                        icon: Icons.person_add,
-                        title: "Edit Profile",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.EditProfileClickedEvent);
-                        },
-                      ),
-
                       Divider(
                         height: 64,
                         thickness: 0.5,

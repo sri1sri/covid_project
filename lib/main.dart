@@ -1,7 +1,5 @@
 
 import 'package:covidapp/AuthenticationScreens/getting_started_screen.dart';
-import 'package:covidapp/AuthenticationScreens/login_screen.dart';
-import 'package:covidapp/AuthenticationScreens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

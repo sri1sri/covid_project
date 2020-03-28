@@ -2,12 +2,11 @@ import 'package:covidapp/common_variables/app_colors.dart';
 import 'package:covidapp/common_variables/app_fonts.dart';
 import 'package:covidapp/common_widgets/offline_widgets/offline_widget.dart';
 import 'package:flutter/material.dart';
-import '../bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 
-class EditProfilePage extends StatelessWidget with NavigationStates{
+class EditProfilePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -122,8 +121,16 @@ class _F_EditProfilePageState extends State<F_EditProfilePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                child: SizedBox(height: 50,)
+                child: Row(
+                  children: <Widget>[
+                    GestureDetector(
+                      child: Icon(Icons.arrow_back,size: 40,color: subBackgroundColor,),
+                      onTap: (){Navigator.pop(context, true);},
+                    )
+                  ],
+                ),
               ),
+              SizedBox(height: 20.0,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

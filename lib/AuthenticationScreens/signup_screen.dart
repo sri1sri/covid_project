@@ -149,7 +149,7 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                   Text("Please Sign Up with your details.",style: descriptionStyleDarkBlur,),
                 ],
               ),
-
+              SizedBox(height: 20.0,),
               Column(
                 children: <Widget>[
                   Container(

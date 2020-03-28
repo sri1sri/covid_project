@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:covidapp/AuthenticationScreens/LoginInPhoneNo.dart';
-import 'package:covidapp/AuthenticationScreens/login_screen.dart';
 import 'package:covidapp/AuthenticationScreens/signup_screen.dart';
 import 'package:covidapp/common_variables/app_colors.dart';
 import 'package:covidapp/common_variables/app_fonts.dart';
