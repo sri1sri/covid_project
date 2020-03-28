@@ -98,6 +98,10 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
   void dispose() {
     _usernameController.dispose();
     _usernameFocusNode.dispose();
+    _ageController.dispose();
+    _ageFocusNode.dispose();
+    _aadharController.dispose();
+    _aadharFocusNode.dispose();
 
     super.dispose();
   }
@@ -159,7 +163,7 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                       ),
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Colors.grey[300],
                       shape: BoxShape.circle,
                     ),
                   ),
