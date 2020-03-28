@@ -1,5 +1,6 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covidapp/AuthenticationScreens/LoginInPhoneNo.dart';
+import 'package:covidapp/HomeScreens/HomePage/sidebar/sidebar_layout.dart';
 import'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -407,31 +408,43 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(child: Text(""),),
-                      Container(
-                        width: 200,
-                        padding: EdgeInsets.all(15.0),
-                        child: Center(
-                            child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Container(),
-                                  Text("SIGN UP",style: subTitleStyleWhite),
-                                  Icon(Icons.arrow_forward,color: Colors.white,),
-                                  Container(),
-                                ])),
-                        decoration: BoxDecoration(
-                            color: backgroundColor,
-                            borderRadius: BorderRadius.circular(100.0),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: subBackgroundColor,
-                                  offset: Offset(2,1),
-                                  blurRadius: 1.0,
-                                  spreadRadius: 1.0
-                              ),
+                      GestureDetector(
+                        child: Container(
+                          width: 200,
+                          padding: EdgeInsets.all(15.0),
+                          child: Center(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Container(),
+                                    Text("SIGN UP",style: subTitleStyleWhite),
+                                    Icon(Icons.arrow_forward,color: Colors.white,),
+                                    Container(),
+                                  ])),
+                          decoration: BoxDecoration(
+                              color: backgroundColor,
+                              borderRadius: BorderRadius.circular(100.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: subBackgroundColor,
+                                    offset: Offset(2,1),
+                                    blurRadius: 1.0,
+                                    spreadRadius: 1.0
+                                ),
 
-                            ]
+                              ]
+                          ),
                         ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  SideBarLayout(
+                                  ),
+                            ),
+                          );
+                        },
                       ),
 
                     ],

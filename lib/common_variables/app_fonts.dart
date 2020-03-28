@@ -82,16 +82,21 @@ var titleStylelight = TextStyle(
     fontFamily: 'Quicksand',
     fontWeight: FontWeight.w700,
     fontSize: 28.0);
+var optionStylelight = TextStyle(
+    color: Colors.white,
+    fontFamily: 'Quicksand',
+    fontWeight: FontWeight.w500,
+    fontSize: 28.0);
 var descriptionStyleDarkBlur = TextStyle(
     color: Color(0xFF424250),
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w800,
     fontSize: 15.0);
 var descriptionStyleLiteBlur = TextStyle(
-    color: Colors.white.withOpacity(.5),
+    color: Colors.white,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w800,
-    fontSize: 15.0);
+    fontSize: 35.0);
 var highlight = TextStyle(
     color: Colors.black.withOpacity(.7),
     fontFamily: 'Quicksand',
