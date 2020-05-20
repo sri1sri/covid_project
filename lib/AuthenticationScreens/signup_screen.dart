@@ -1,5 +1,5 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:covidapp/AuthenticationScreens/LoginInPhoneNo.dart';
+import 'package:covidapp/AuthenticationScreens/LoginIn.dart';
 import 'package:covidapp/HomeScreens/HomePage/sidebar/sidebar_layout.dart';
 import'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -87,10 +87,10 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
 
   final TextEditingController _usernameController = TextEditingController();
   final FocusNode _usernameFocusNode = FocusNode();
-  final TextEditingController _ageController = TextEditingController();
-  final FocusNode _ageFocusNode = FocusNode();
-  final TextEditingController _aadharController = TextEditingController();
-  final FocusNode _aadharFocusNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
+  final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _passwordFocusNode = FocusNode();
 
  // SignUpModel get model => widget.model;
 
@@ -98,10 +98,10 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
   void dispose() {
     _usernameController.dispose();
     _usernameFocusNode.dispose();
-    _ageController.dispose();
-    _ageFocusNode.dispose();
-    _aadharController.dispose();
-    _aadharFocusNode.dispose();
+    _emailController.dispose();
+    _emailFocusNode.dispose();
+    _passwordController.dispose();
+    _passwordFocusNode.dispose();
 
     super.dispose();
   }
@@ -126,7 +126,7 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
     return Scaffold(
       body:SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top:80.0,bottom: 20,left: 20,right: 20),
+          padding: const EdgeInsets.only(top:60.0,bottom: 20,left: 20,right: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,18 +245,18 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                             ]
                         ),
                         child: new TextFormField(
-                          controller: _ageController,
+                          controller: _emailController,
                           textInputAction: TextInputAction.done,
                           obscureText: false,
-                          focusNode: _ageFocusNode,
+                          focusNode: _emailFocusNode,
                           //onEditingComplete: () => _imageUpload(),
                          // onChanged: model.updateUsername,
                           decoration: new InputDecoration(
                             prefixIcon: Icon(
-                              Icons.donut_large,
+                              Icons.mail,
                               color: subBackgroundColor,
                             ),
-                            labelText: "Enter your Age",
+                            labelText: "Enter your Email",
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(5.0),
                               borderSide: new BorderSide(),
@@ -264,7 +264,7 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                           ),
                           validator: (val) {
                             if (val.length == 0) {
-                              return "Age cannot be empty";
+                              return "Email cannot be empty";
                             } else {
                               return null;
                             }
@@ -300,18 +300,18 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                             ]
                         ),
                         child: new TextFormField(
-                          controller: _aadharController,
+                          controller: _passwordController,
                           textInputAction: TextInputAction.done,
                           obscureText: false,
-                          focusNode: _aadharFocusNode,
+                          focusNode: _passwordFocusNode,
                           //onEditingComplete: () => _imageUpload(),
                           //onChanged: model.updateUsername,
                           decoration: new InputDecoration(
                             prefixIcon: Icon(
-                              Icons.description,
+                              Icons.lock,
                               color: subBackgroundColor,
                             ),
-                            labelText: "Enter your Aadhar",
+                            labelText: "Enter your Password",
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(5.0),
                               borderSide: new BorderSide(),
@@ -319,7 +319,7 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                           ),
                           validator: (val) {
                             if (val.length == 0) {
-                              return "Username cannot be empty";
+                              return "Password cannot be empty";
                             } else {
                               return null;
                             }
@@ -346,7 +346,9 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                             group=T;
                           });
                         },
-                      ),Radio(
+                      ),
+                      Text("Male",style: descriptionStyleDark,),
+                      Radio(
                         value: 2,
                         groupValue: group,
                         onChanged: (T){
@@ -355,7 +357,8 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                             group=T;
                           });
                         },
-                      )
+                      ),
+                      Text("Female",style: descriptionStyleDark,),
                     ],
                   ),
                   SizedBox(height: 10.0,),
@@ -455,32 +458,77 @@ class _F_SignupScreenState extends State<F_SignupScreen> {
                   ),
                 ],
               ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Already have an account?",
-                    style: subTitleStyleLight
-                  ),
-                  FlatButton(
-                    child: Text(
-                      'Sign In',
-                      style: titleStyleTheam,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              PhoneNumberPage(
-                              ),
+              SizedBox(height: 20.0,),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom:20.0),
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text:
+                          'By continuing, You accept the Terms & Conditions Of the',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      );
-                    },
+                        TextSpan(
+                          text: ' Terms of use',
+                          style: TextStyle(
+                            color: backgroundColor,
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' and',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' Privacy Policies',
+                          style: TextStyle(
+                            color: backgroundColor,
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
+//              Row(
+//                mainAxisAlignment: MainAxisAlignment.center,
+//                children: <Widget>[
+//                  Text(
+//                    "Already have an account?",
+//                    style: subTitleStyleLight
+//                  ),
+//                  FlatButton(
+//                    child: Text(
+//                      'Sign In',
+//                      style: titleStyleTheam,
+//                    ),
+//                    onPressed: () {
+//                      Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                          builder: (context) =>
+//                              PhoneNumberPage(
+//                              ),
+//                        ),
+//                      );
+//                    },
+//                  ),
+//                ],
+//              ),
             ],
           ),
         ),

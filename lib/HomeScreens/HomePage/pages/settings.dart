@@ -1,4 +1,3 @@
-import 'package:covidapp/HomeScreens/EditProfile.dart';
 import 'package:covidapp/HomeScreens/SettingsOptions/how_to_use.dart';
 import 'package:covidapp/HomeScreens/SettingsOptions/privacy_policy.dart';
 import 'package:covidapp/HomeScreens/SettingsOptions/terms_conditions.dart';
@@ -87,7 +86,6 @@ class _F_SettingsPageState extends State<F_SettingsPage> {
                       ],
                     ),
                     SizedBox(height: 20.0,),
-                    _editProfile(),
                     _reportAnIssue( ),
                     _howToUse( ),
                     _privacyPolicy( ),
@@ -139,58 +137,6 @@ class _F_SettingsPageState extends State<F_SettingsPage> {
             Column(
               children: <Widget>[
                 Text( 'Report an Issue',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    letterSpacing: 1.5,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w600,
-                    //fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
-                  ),
-                ),
-              ],
-
-            ),
-            Column(
-              children: <Widget>[
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black54,
-                  size: 30,
-                ),
-              ],
-
-            ),
-
-          ],
-
-        ),
-      ),
-
-    );
-  }
-  Widget _editProfile() {
-    return Container(
-      width: double.infinity,
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => EditProfilePage( ) ),
-          );
-        },
-        padding: EdgeInsets.all( 15.0 ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular( 0.0 ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Text( 'Edit Profile',
                   style: TextStyle(
                     color: Colors.black87,
                     letterSpacing: 1.5,

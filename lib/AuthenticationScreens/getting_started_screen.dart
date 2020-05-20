@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:covidapp/AuthenticationScreens/LoginInPhoneNo.dart';
+import 'package:covidapp/AuthenticationScreens/LoginIn.dart';
 import 'package:covidapp/AuthenticationScreens/signup_screen.dart';
 import 'package:covidapp/common_variables/app_colors.dart';
 import 'package:covidapp/common_variables/app_fonts.dart';
@@ -59,6 +59,8 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
+              SizedBox(height: 50,),
+              Text("Pond Analysis",style: bigTitleStyle,),
               Expanded(
                 child: Stack(
                   alignment: AlignmentDirectional.bottomCenter,

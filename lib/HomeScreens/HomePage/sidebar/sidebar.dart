@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:covidapp/AuthenticationScreens/getting_started_screen.dart';
 import 'package:covidapp/common_variables/app_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,12 +64,12 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
           top: 0,
           bottom: 0,
           left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-          right: isSideBarOpenedAsync.data ? 0 : screenWidth - 45,
+          right: isSideBarOpenedAsync.data ? 0 : screenWidth - 40,
           child: Row(
             children: <Widget>[
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   color: const Color(0xFF4184F3),
                   child: Column(
                     children: <Widget>[
@@ -81,7 +82,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                           style: descriptionStyleLiteBlur,
                         ),
                         subtitle: Text(
-                          "+919585753459",
+                          "v.g.vasanth@gmail.com",
                           style: subTitleStyleLite,
                         ),
                         leading: CircleAvatar(
@@ -116,33 +117,18 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         },
                       ),
                       MenuItem(
-                        icon: Icons.whatshot,
-                        title: "Temperature Data",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.TemperatureDataClickedevent);
-                        },
-                      ),
-                      MenuItem(
-                        icon: Icons.perm_contact_calendar,
-                        title: "Personal Data",
+                        icon: Icons.image,
+                        title: "Stored Images",
                         onTap: () {
                           onIconPressed();
                           BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.PersonalDataClickedevent);
                         },
                       ),
-                      MenuItem(
-                        icon: Icons.pan_tool,
-                        title: "Your Idea",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.YourIdeaClickedevent);
-                        },
-                      ),
+                      SizedBox(height: 150,),
                       Divider(
                         height: 64,
                         thickness: 0.5,
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.8),
                         indent: 32,
                         endIndent: 32,
                       ),
@@ -157,7 +143,13 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       MenuItem(
                         icon: Icons.exit_to_app,
                         title: "Logout",
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => GettingStartedScreen() ),
+                          );
+                        },
                       ),
                     ],
                   ),

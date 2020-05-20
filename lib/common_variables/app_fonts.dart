@@ -10,7 +10,7 @@ var bigTitleStyle = TextStyle(
 var topNavigationBarTitleStyle = TextStyle(
     color: Color(0xFF424250),
     fontFamily: 'Montserrat-Regular',
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w800,
     fontSize: 34.0);
 var titleStyle = TextStyle(
     color: Color(0xFF424250),
@@ -90,7 +90,7 @@ var optionStylelight = TextStyle(
 var descriptionStyleDarkBlur = TextStyle(
     color: Color(0xFF424250),
     fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w600,
     fontSize: 15.0);
 var descriptionStyleLiteBlur = TextStyle(
     color: Colors.white,

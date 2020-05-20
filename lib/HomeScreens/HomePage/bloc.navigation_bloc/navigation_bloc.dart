@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:covidapp/HomeScreens/HomePage/pages/personalData.dart';
 import 'package:covidapp/HomeScreens/HomePage/pages/settings.dart';
-import 'package:covidapp/HomeScreens/HomePage/pages/temperatureData.dart';
-import 'package:covidapp/HomeScreens/HomePage/pages/yourIdea.dart';
 import '../pages/myaccountspage.dart';
 
 import '../pages/homepage.dart';
@@ -12,8 +10,6 @@ enum NavigationEvents {
   MyAccountClickedEvent,
   PersonalDataClickedevent,
   SettingsClickedevent,
-  TemperatureDataClickedevent,
-  YourIdeaClickedevent,
 
 }
 
@@ -37,12 +33,6 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         break;
       case NavigationEvents.SettingsClickedevent:
         yield SettingsPage();
-        break;
-      case NavigationEvents.TemperatureDataClickedevent:
-        yield TemperaturePage();
-        break;
-      case NavigationEvents.YourIdeaClickedevent:
-        yield YourIdeaPage();
         break;
     }
   }

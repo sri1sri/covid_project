@@ -1,6 +1,7 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:covidapp/AuthenticationScreens/Verify_Otp.dart';
 import 'package:covidapp/AuthenticationScreens/signup_screen.dart';
+import 'package:covidapp/HomeScreens/HomePage/sidebar/sidebar_layout.dart';
 import'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,15 +47,20 @@ class F_PhoneNumberPage extends StatefulWidget {
 
 class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
 
-  final TextEditingController _phoneNumberController = TextEditingController();
-  final FocusNode _phoneNumberFocusNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
+  final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _passwordFocusNode = FocusNode();
 //  PhoneNumberModel get model => widget.model;
 
   Future<bool> didCheckPhoneNumber;
 
   @override
   void dispose() {
-    _phoneNumberController.dispose();
+    _emailController.dispose();
+    _emailFocusNode.dispose();
+    _passwordController.dispose();
+    _passwordFocusNode.dispose();
     super.dispose();
   }
 
@@ -78,7 +84,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
 
     return Scaffold(
       body:Padding(
-        padding: const EdgeInsets.only(top:100.0,bottom: 20,left: 20,right: 20),
+        padding: const EdgeInsets.only(top:80.0,bottom: 20,left: 20,right: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,64 +104,121 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
                 children: <Widget>[
                   Text("Login",style: bigTitleStyle,),
                   SizedBox(height: 15.0,),
-                  Text("Please enter your Phone number to continue.",style: descriptionStyleDarkBlur,),
+                  Text("Please enter your Email & Password to continue.",style: descriptionStyleDarkBlur,),
                 ],
             ),
 
             Column(
               children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0XFFEFF3F6),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.1),
-                            offset: Offset(3, 3),
-                            blurRadius: 2.0,
-                            spreadRadius: 2.0
+                SizedBox(height: 20.0,),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0XFFEFF3F6),
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.1),
+                                offset: Offset(3, 3),
+                                blurRadius: 2.0,
+                                spreadRadius: 2.0
+                            ),
+                            BoxShadow(
+                                color: Color.fromRGBO(255, 255, 255, 0.9),
+                                offset: Offset(-6, -2),
+                                blurRadius: 2.0,
+                                spreadRadius: 3.0
+                            )
+                          ]
+                      ),
+                      child: new TextFormField(
+                        controller: _emailController,
+                        textInputAction: TextInputAction.done,
+                        obscureText: false,
+                        focusNode: _emailFocusNode,
+                        //onEditingComplete: () => _imageUpload(),
+                        // onChanged: model.updateUsername,
+                        decoration: new InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.mail,
+                            color: subBackgroundColor,
+                          ),
+                          labelText: "Enter your Email",
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(5.0),
+                            borderSide: new BorderSide(),
+                          ),
                         ),
-                        BoxShadow(
-                            color: Color.fromRGBO(255, 255, 255, 0.9),
-                            offset: Offset(-6, -2),
-                            blurRadius: 2.0,
-                            spreadRadius: 3.0
-                        )
-                      ]
-                  ),
-                  child: new TextFormField(
-                    controller: _phoneNumberController,
-                    textInputAction: TextInputAction.done,
-                    obscureText: false,
-                    focusNode: _phoneNumberFocusNode,
-                    // onEditingComplete: () => _submit(context),
-                    // onChanged: model.updatePhoneNumber,
-                    decoration: new InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.phone,
-                        color: subBackgroundColor,
-                      ),
-                      labelText: "Enter your mobile no.",
-                      //fillColor: Colors.redAccent,
-                      border: new OutlineInputBorder(
-                        borderRadius: new BorderRadius.circular(5.0),
-                        borderSide: new BorderSide(),
+                        validator: (val) {
+                          if (val.length == 0) {
+                            return "Email cannot be empty";
+                          } else {
+                            return null;
+                          }
+                        },
+                        keyboardType: TextInputType.number,
+                        style: new TextStyle(
+                          fontFamily: "Poppins",
+                        ),
                       ),
                     ),
-                    validator: (val) {
-                      if (val.length == 0) {
-                        return "Phone number cannot be empty";
-                      } else if (val.length == 10) {
-                        return null;
-                      } else {
-                        return "Phone number you entered is invalid.";
-                      }
-                    },
-                    keyboardType: TextInputType.phone,
-                    style: new TextStyle(
-                      fontFamily: "Poppins",
+                  ],
+                ),
+                SizedBox(height: 20.0,),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0XFFEFF3F6),
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.1),
+                                offset: Offset(3, 3),
+                                blurRadius: 2.0,
+                                spreadRadius: 2.0
+                            ),
+                            BoxShadow(
+                                color: Color.fromRGBO(255, 255, 255, 0.9),
+                                offset: Offset(-6, -2),
+                                blurRadius: 2.0,
+                                spreadRadius: 3.0
+                            )
+                          ]
+                      ),
+                      child: new TextFormField(
+                        controller: _passwordController,
+                        textInputAction: TextInputAction.done,
+                        obscureText: false,
+                        focusNode: _passwordFocusNode,
+                        //onEditingComplete: () => _imageUpload(),
+                        //onChanged: model.updateUsername,
+                        decoration: new InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: subBackgroundColor,
+                          ),
+                          labelText: "Enter your Password",
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(5.0),
+                            borderSide: new BorderSide(),
+                          ),
+                        ),
+                        validator: (val) {
+                          if (val.length == 0) {
+                            return "Password cannot be empty";
+                          } else {
+                            return null;
+                          }
+                        },
+                        keyboardType: TextInputType.text,
+                        style: new TextStyle(
+                          fontFamily: "Poppins",
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 SizedBox(height: 30.0,),
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,7 +233,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Container(),
-                             Text("GET OTP",style: subTitleStyleWhite),
+                             Text("Log In",style: subTitleStyleWhite),
                               Icon(Icons.arrow_forward,color: Colors.white,),
                               Container(),
                         ])),
@@ -193,7 +256,7 @@ class _F_PhoneNumberPageState extends State<F_PhoneNumberPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                OTPPage(
+                                SideBarLayout(
                                 ),
                           ),
                         );
